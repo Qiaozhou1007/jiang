@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 设置基本的配置信息 配置模板在 /org/apache/struts2/default.properties 国际化，编码格式的设置 -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<!-- 二次过滤资源,只拦截以.action或者.do结尾的请求资源 -->
+	<constant name="struts.action.extension" value="action,do"></constant>
+	<!-- 编写java代码无需重启tomcat，自动把代码部署到tomcat中 -->
+	<constant name="struts.devMode" value="false"></constant>
+	<!-- package做功能划分的 name是包的名字或者命名空间的名字 extends 继承拦截器栈 -->
+
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="login" class="com.aust.action.LoginAction"
+			method="add">
+			<result>/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="register" class="com.aust.action.RegisterAction" method="register">
+			<result name="success">/loginagain.jsp</result>
+			<result name="error">/registeragain.jsp</result>
+		</action>
+	</package>
+</struts> 
+    
+     
